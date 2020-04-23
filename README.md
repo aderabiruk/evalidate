@@ -159,6 +159,14 @@ if (!result.isValid) {
 
 ### String: evalidate.string()
 
+* alphanumeric(message)
+  * Check if input contains only alphanumeric characters
+  * (Optional) Custom error message
+
+* credit_card(message)
+  * Check if input is a valid credit card number
+  * (Optional) Custom error message
+
 * email(message)
   * Check if input is a valid email address
   * (Optional) Custom error message
@@ -168,9 +176,17 @@ if (!result.isValid) {
   * value must be a string
   * (Optional) Custom error message
 
+* fqdn(message)
+  * Check if input is a valid fully qualified domain name
+  * (Optional) Custom error message
+
 * in(value, message)
   * Check if input string is in a given array
   * value must be an array
+  * (Optional) Custom error message
+
+* isbn(message)
+  * Check if input is a valid ISBN
   * (Optional) Custom error message
 
 * maxlength(value, message)
@@ -184,6 +200,10 @@ if (!result.isValid) {
   * (Optional) Custom error message
 
 * required(message)
+  * (Optional) Custom error message
+
+* url(message)
+  * Check if input is a URL
   * (Optional) Custom error message
 
 ## License
