@@ -1,15 +1,31 @@
 {
-  "name": "evalidate-typescript",
+  "name": "evalidate",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An easy to use Object Schema Validator",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest --verbose --coverage",
     "test:dev": "jest --verbose --watchAll"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aderabiruk/evalidate.git"
+  },
+  "keywords": [
+    "validator",
+    "validation",
+    "validator",
+    "schema",
+    "joi",
+    "express"
+  ],
+  "author": "Biruk adera",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aderabiruk/evalidate/issues"
+  },
+  "homepage": "https://github.com/aderabiruk/evalidate#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",
     "@types/jest": "^25.2.1",
