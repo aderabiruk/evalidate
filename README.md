@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/aderabiruk/evalidate.svg?style=svg)](https://circleci.com/gh/aderabiruk/evalidate)
 [![Known Vulnerabilities](https://snyk.io/test/github/aderabiruk/evalidate/badge.svg?targetFile=package.json)](https://snyk.io/test/github/aderabiruk/evalidate?targetFile=package.json)
 [![codecov](https://codecov.io/gh/aderabiruk/evalidate/branch/master/graph/badge.svg)](https://codecov.io/gh/aderabiruk/evalidate)
+[![codebeat badge](https://codebeat.co/badges/b13cb69f-03d8-4cc9-bad3-c09d2d8d6f3b)](https://codebeat.co/projects/github-com-aderabiruk-evalidate-master)
 [![HitCount](http://hits.dwyl.com/aderabiruk/evalidate.svg)](http://hits.dwyl.com/aderabiruk/evalidate)
 [![npm version](https://badge.fury.io/js/evalidate.svg)](https://badge.fury.io/js/evalidate)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/aderabiruk/evalidate)
