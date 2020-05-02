@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --verbose --coverage",
-    "test:dev": "jest --verbose --watchAll"
+    "test:dev": "jest --verbose --watchAll",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,8 @@
     "@types/validator": "^13.0.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "validator": "^13.0.0"
-  }
+    "validator": "^13.0.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
