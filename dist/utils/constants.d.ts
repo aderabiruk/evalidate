@@ -43,6 +43,7 @@ export declare const STRING_VALIDATOR_TYPES: {
     ISBN: string;
     MAXLENGTH: string;
     MINLENGTH: string;
+    NUMERIC: string;
     REQUIRED: string;
     TYPE: string;
     URL: string;

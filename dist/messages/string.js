@@ -62,6 +62,14 @@ exports.string_minlength_error_message = function (value) {
     return "${{}} must have at least " + value + " characters";
 };
 /**
+ * Numeric Error Message
+ *
+ * @param {String} value
+ */
+exports.string_numeric_error_message = function () {
+    return "${{}} must only have numeric characters";
+};
+/**
  * Required Error Message
  *
  */

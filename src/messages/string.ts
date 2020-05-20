@@ -69,6 +69,15 @@ export const string_minlength_error_message = (value: any): string => {
 };
 
 /**
+ * Numeric Error Message
+ * 
+ * @param {String} value 
+ */
+export const string_numeric_error_message = (): string => {
+    return `\${{}} must only have numeric characters`;
+};
+
+/**
  * Required Error Message
  * 
  */

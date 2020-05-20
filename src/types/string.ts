@@ -2,7 +2,7 @@ import AbstractValidator from "./abstract";
 import { isString, isNumber, isArray } from "../utils/validators";
 import { STRING_VALIDATOR_TYPES, TYPES } from "../utils/constants";
 import { string_type_error_message, number_type_error_message, array_type_error_message } from "../utils/errors";
-import { string_email_error_message, string_in_error_message, string_maxlength_error_message, string_minlength_error_message, string_required_error_message, string_equal_error_message, string_alphanumeric_error_message, string_credit_card_error_message, string_fqdn_error_message, string_isbn_error_message, string_url_error_message } from "../messages/string";
+import { string_email_error_message, string_in_error_message, string_maxlength_error_message, string_minlength_error_message, string_required_error_message, string_equal_error_message, string_alphanumeric_error_message, string_credit_card_error_message, string_fqdn_error_message, string_isbn_error_message, string_url_error_message, string_numeric_error_message } from "../messages/string";
 
 /**
  * String Validator Class
@@ -158,6 +158,19 @@ export class StringValidator extends AbstractValidator {
             throw new Error(number_type_error_message("value"));
         }
         this.validators.push({validator: TYPES.STRING, type: STRING_VALIDATOR_TYPES.MINLENGTH, value: value, message: message || string_minlength_error_message(value)});
+        return this;
+    }
+
+    /**
+     * Numeric Validator
+     * 
+     * @param {String} message 
+     */
+    numeric(message?: string): StringValidator {
+        if (message && !isString(message)) {
+            throw new Error(string_type_error_message("message"));
+        }
+        this.validators.push({validator: TYPES.STRING, type: STRING_VALIDATOR_TYPES.NUMERIC, message: message || string_numeric_error_message()});
         return this;
     }
 
