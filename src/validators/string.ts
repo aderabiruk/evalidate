@@ -59,6 +59,11 @@ export const handleStringValidation = (field: string, validator: Validator, valu
                     errors.push({field: field, message: validator.message});
                 }
                 break;
+            case STRING_VALIDATOR_TYPES.NUMERIC:
+                if (!StringValidator.isNumeric(value)) {
+                    errors.push({field: field, message: validator.message});
+                }
+                break;
             case STRING_VALIDATOR_TYPES.URL:
                 if (!StringValidator.isURL(value)) {
                     errors.push({field: field, message: validator.message});

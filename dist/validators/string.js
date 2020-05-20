@@ -59,6 +59,11 @@ exports.handleStringValidation = function (field, validator, value) {
                     errors.push({ field: field, message: validator.message });
                 }
                 break;
+            case constants_1.STRING_VALIDATOR_TYPES.NUMERIC:
+                if (!validator_1.default.isNumeric(value)) {
+                    errors.push({ field: field, message: validator.message });
+                }
+                break;
             case constants_1.STRING_VALIDATOR_TYPES.URL:
                 if (!validator_1.default.isURL(value)) {
                     errors.push({ field: field, message: validator.message });

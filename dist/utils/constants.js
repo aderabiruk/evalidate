@@ -45,6 +45,7 @@ exports.STRING_VALIDATOR_TYPES = {
     ISBN: "isbn",
     MAXLENGTH: "maxlength",
     MINLENGTH: "minlength",
+    NUMERIC: "numeric",
     REQUIRED: "required",
     TYPE: "type",
     URL: "url"
