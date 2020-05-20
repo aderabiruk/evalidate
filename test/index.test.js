@@ -12,7 +12,8 @@ describe("Main File", () => {
                     status: evalidate.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate.string().required().equals("Admin"),
                     credit: evalidate.string().alphanumeric().credit_card(),
-                    website: evalidate.string().url()
+                    website: evalidate.string().url(),
+                    age: evalidate.string().numeric('Age must be numeric')
                 });
                 let result = schema.validate({});
                 expect(result.isValid).toBeFalsy();
@@ -37,13 +38,15 @@ describe("Main File", () => {
                     status: evalidate.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate.string().required().equals("Admin"),
                     credit: evalidate.string().alphanumeric().credit_card(),
-                    website: evalidate.string().url()
+                    website: evalidate.string().url(),
+                    age: evalidate.string().numeric('Age must be numeric')
                 });
                 let result = schema.validate({
                     name: "jo",
                     email: "aderabiruk",
                     status: "Unknown",
-                    type: "User"
+                    type: "User",
+                    age: 'qwerty'
                 });
                 expect(result.isValid).toBeFalsy();
                 expect(result.errors).toContainEqual({
@@ -58,6 +61,9 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'type', message: "Invalid value provided for type"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'age', message: "Age must be numeric"
+                });
             });
 
             it("Scenario #3", () => {
@@ -67,7 +73,8 @@ describe("Main File", () => {
                     status: evalidate.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate.string().required().equals("Admin"),
                     credit: evalidate.string().alphanumeric().credit_card(),
-                    website: evalidate.string().url()
+                    website: evalidate.string().url(),
+                    age: evalidate.string().numeric()
                 });
                 let result = schema.validate({
                     name: "jo",
@@ -75,7 +82,8 @@ describe("Main File", () => {
                     status: "Unknown",
                     type: "User",
                     credit: "!@#$%%^&*(()",
-                    website: 'invalid-website'
+                    website: 'invalid-website',
+                    age: "qwerty"
                 });
 
                 expect(result.isValid).toBeFalsy();
@@ -100,6 +108,9 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'website', message: "Invalid url value provided for website"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'age', message: "age must only have numeric characters"
+                });
             });
 
             it("Scenario #4", () => {
@@ -109,13 +120,15 @@ describe("Main File", () => {
                     status: evalidate.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate.string().required().equals("Admin"),
                     credit: evalidate.string().alphanumeric().credit_card(),
-                    website: evalidate.string().url()
+                    website: evalidate.string().url(),
+                    age: evalidate.string().numeric()
                 });
                 let result = schema.validate({
                     name: "aderabiruk",
                     email: "aderabiruk@gmail.com",
                     status: "Active",
-                    type: "Admin"
+                    type: "Admin",
+                    age: "23"
                 });
                 expect(result.isValid).toBeTruthy();
                 expect(result.errors.length).toBe(0);
