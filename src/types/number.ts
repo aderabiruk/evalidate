@@ -2,7 +2,7 @@ import AbstractValidator from "./abstract";
 import { isString, isNumber, isArray } from "../utils/validators";
 import { NUMBER_VALIDATOR_TYPES, TYPES } from "../utils/constants";
 import { string_type_error_message, number_type_error_message, array_type_error_message } from "../utils/errors";
-import { number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message, number_required_error_message } from "../messages/number";
+import { number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message, number_required_error_message, number_latitude_error_message, number_longitude_error_message } from "../messages/number";
 
 /**
  * Number Validator Class
@@ -64,6 +64,32 @@ export class NumberValidator extends AbstractValidator {
             throw new Error(string_type_error_message("message"));
         }
         this.validators.push({validator: TYPES.NUMBER, type: NUMBER_VALIDATOR_TYPES.INTEGER, message: message || number_integer_error_message()});
+        return this;
+    }
+
+    /**
+     * Latitude Validator
+     * 
+     * @param {String} message 
+     */
+    latitude(message?: string): NumberValidator {
+        if (message && !isString(message)) {
+            throw new Error(string_type_error_message("message"));
+        }
+        this.validators.push({validator: TYPES.NUMBER, type: NUMBER_VALIDATOR_TYPES.LATITUDE, message: message || number_latitude_error_message()});
+        return this;
+    }
+
+    /**
+     * Longitude Validator
+     * 
+     * @param {String} message 
+     */
+    longitude(message?: string): NumberValidator {
+        if (message && !isString(message)) {
+            throw new Error(string_type_error_message("message"));
+        }
+        this.validators.push({validator: TYPES.NUMBER, type: NUMBER_VALIDATOR_TYPES.LONGITUDE, message: message || number_longitude_error_message()});
         return this;
     }
 

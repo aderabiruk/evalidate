@@ -32,6 +32,8 @@ export const NUMBER_VALIDATOR_TYPES = {
     EQUAL: "equal",
     IN: "in",
     INTEGER: "integer",
+    LATITUDE: "latitude",
+    LONGITUDE: "longitude",
     MAX: "max",
     MIN: "min",
     REQUIRED: "required",

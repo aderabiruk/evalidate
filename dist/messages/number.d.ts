@@ -11,6 +11,14 @@ export declare const number_in_error_message: () => string;
  */
 export declare const number_integer_error_message: () => string;
 /**
+ * Latitude Error Message
+ */
+export declare const number_latitude_error_message: () => string;
+/**
+ * Longitude Error Message
+ */
+export declare const number_longitude_error_message: () => string;
+/**
  * Max Error Message
  */
 export declare const number_max_error_message: (value: any) => string;

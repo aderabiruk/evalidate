@@ -31,6 +31,18 @@ export declare class NumberValidator extends AbstractValidator {
      */
     integer(message?: string): NumberValidator;
     /**
+     * Latitude Validator
+     *
+     * @param {String} message
+     */
+    latitude(message?: string): NumberValidator;
+    /**
+     * Longitude Validator
+     *
+     * @param {String} message
+     */
+    longitude(message?: string): NumberValidator;
+    /**
      * Maximum Validator
      *
      * @param {Number} value
