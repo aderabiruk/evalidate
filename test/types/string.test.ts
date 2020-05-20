@@ -1,7 +1,7 @@
 import String from '../../dist/types/string';
 import { string_type_error_message } from '../../dist/utils/errors';
 import { STRING_VALIDATOR_TYPES, TYPES } from '../../dist/utils/constants';
-import { string_alphanumeric_error_message, string_credit_card_error_message, string_fqdn_error_message, string_isbn_error_message, string_url_error_message } from '../../src/messages/string';
+import { string_alphanumeric_error_message, string_credit_card_error_message, string_fqdn_error_message, string_isbn_error_message, string_url_error_message, string_numeric_error_message } from '../../src/messages/string';
 import { string_email_error_message, string_equal_error_message, string_in_error_message, string_maxlength_error_message, string_minlength_error_message, string_required_error_message } from '../../dist/messages/string';
 
 describe("StringValidator", () => {
@@ -165,6 +165,24 @@ describe("StringValidator", () => {
 
             expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: string_type_error_message("${{}}"), type: STRING_VALIDATOR_TYPES.TYPE});
             expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: "Max Length Error Message!", value: 10, type: STRING_VALIDATOR_TYPES.MINLENGTH});
+        });
+    });
+
+    describe("numeric", () => {
+        it("Should add numeric validator without message", () => {
+            let validator = String();
+            validator.numeric();
+
+            expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: string_type_error_message("${{}}"), type: STRING_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: string_numeric_error_message(), type: STRING_VALIDATOR_TYPES.NUMERIC});
+        });
+
+        it("Should add numeric validator with message", () => {
+            let validator = String();
+            validator.numeric("Numeric Error!");
+
+            expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: string_type_error_message("${{}}"), type: STRING_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.STRING, message: "Numeric Error!", type: STRING_VALIDATOR_TYPES.NUMERIC});
         });
     });
 

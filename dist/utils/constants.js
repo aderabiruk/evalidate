@@ -30,6 +30,8 @@ exports.NUMBER_VALIDATOR_TYPES = {
     EQUAL: "equal",
     IN: "in",
     INTEGER: "integer",
+    LATITUDE: "latitude",
+    LONGITUDE: "longitude",
     MAX: "max",
     MIN: "min",
     REQUIRED: "required",
@@ -45,6 +47,7 @@ exports.STRING_VALIDATOR_TYPES = {
     ISBN: "isbn",
     MAXLENGTH: "maxlength",
     MINLENGTH: "minlength",
+    NUMERIC: "numeric",
     REQUIRED: "required",
     TYPE: "type",
     URL: "url"

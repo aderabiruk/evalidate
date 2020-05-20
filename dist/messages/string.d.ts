@@ -42,6 +42,12 @@ export declare const string_maxlength_error_message: (value: any) => string;
  */
 export declare const string_minlength_error_message: (value: any) => string;
 /**
+ * Numeric Error Message
+ *
+ * @param {String} value
+ */
+export declare const string_numeric_error_message: () => string;
+/**
  * Required Error Message
  *
  */

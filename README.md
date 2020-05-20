@@ -89,26 +89,26 @@ if (!result.isValid) {
 ### Array: evalidate.array()
 
 * contains(value, message)  
-  * Check if input array contains a value
+  * must contain **value**
   * (Optional) Custom error message
 
 * equals(value, message)
-  * Check if input array has the same content as a given array(value)
-  * value must be an array
+  * must have the same content as **value**
+  * **value** must be an array
   * (Optional) Custom error message
 
 * required(message)
   * (Optional) Custom error message
 
 * size(value, message)
-  * Check the length of the input array
+  * Checks the number of items in the array
   * (Optional) Custom error message
 
 ### Boolean: evalidate.boolean()
 
 * equals(value, message)
-  * Check if boolean matches value
-  * value must be boolean
+  * must be the same as **value** 
+  * **value** must be boolean
   * (Optional) Custom error message
 
 * required(message)
@@ -117,18 +117,18 @@ if (!result.isValid) {
 ### Date: evalidate.date()
 
 * after(value, message)
-  * Check if input date is after a given date
-  * value cab be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
+  * must be after **value**
+  * **value** can be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
   * (Optional) Custom error message
 
 * before(value, message)
-  * Check if input date is before a given date
-  * value cab be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
+  * must be before **value**
+  * **value** can be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
   * (Optional) Custom error message
 
 * equals(value, message)
-  * Check if input date is the same as a given date
-  * value cab be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
+  * must be the same as **value**
+  * **value** can be a date object, an integer value representing the number of milliseconds since January 1, 1970 or string value representing a date, specified in a format recognized by the Date.parse() method.
   * (Optional) Custom error message
 
 * required(message)
@@ -137,22 +137,30 @@ if (!result.isValid) {
 ### Number: evalidate.number()
 
 * equals(value, message)
-  * Check if input equals value
-  * value must be a number
+  * must be the same as **value**
+  * **value** must be a number
   * (Optional) Custom error message
 
 * integer(message)
-  * Check if input number is an integer
+  * must be an integer
+  * (Optional) Custom error message
+
+* latitude(message)
+  * must be a valid latitude (Between -90 and 90)
+  * (Optional) Custom error message
+
+* longitude(message)
+  * must be a valid longitude (Between -180 and 180)
   * (Optional) Custom error message
 
 * min(value, message)
-  * Check if input number is greater than or equal to a given value
-  * value must be a number
+  * must be greater than or equal to **value**
+  * **value** must be a number
   * (Optional) Custom error message
 
 * max(value, message)
-  * Check if input number is less than or equal to a given value
-  * value must be a number
+  * must be less than or equal to **value**
+  * **value** must be a number
   * (Optional) Custom error message
 
 * required(message)
@@ -161,50 +169,54 @@ if (!result.isValid) {
 ### String: evalidate.string()
 
 * alphanumeric(message)
-  * Check if input contains only alphanumeric characters
+  * must contain only alphanumeric characters
   * (Optional) Custom error message
 
 * credit_card(message)
-  * Check if input is a valid credit card number
+  * must be a valid credit card number
   * (Optional) Custom error message
 
 * email(message)
-  * Check if input is a valid email address
+  * must be a valid email address
   * (Optional) Custom error message
 
 * equals(value, message)
-  * Check if input equals value
-  * value must be a string
+  * must be equalt to **value**
+  * **value** must be a string
   * (Optional) Custom error message
 
 * fqdn(message)
-  * Check if input is a valid fully qualified domain name
+  * must be a valid fully qualified domain name
   * (Optional) Custom error message
 
 * in(value, message)
-  * Check if input string is in a given array
-  * value must be an array
+  * must be in **value**
+  * **value** must be an array
   * (Optional) Custom error message
 
 * isbn(message)
-  * Check if input is a valid ISBN
+  * must be a valid ISBN
   * (Optional) Custom error message
 
 * maxlength(value, message)
-  * Check if number of characters in the input string are less than or equal to a given value
-  * value must be a number
+  * number of characters in the input string must be less than or equal to **value**
+  * **value** must be a number
   * (Optional) Custom error message
 
 * milength(value, message)
-  * Check if number of characters in the input string are greater than or equal to a given value
-  * value must be a number
+  * number of characters in the input string must be greater than or equal to **value**
+  * **value** must be a number
+  * (Optional) Custom error message
+
+* numeric(message)
+  * must contain only numeric characters
   * (Optional) Custom error message
 
 * required(message)
   * (Optional) Custom error message
 
 * url(message)
-  * Check if input is a URL
+  * must be a valid url
   * (Optional) Custom error message
 
 ## License

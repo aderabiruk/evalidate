@@ -75,6 +75,12 @@ export declare class StringValidator extends AbstractValidator {
      */
     minlength(value: any, message?: string): StringValidator;
     /**
+     * Numeric Validator
+     *
+     * @param {String} message
+     */
+    numeric(message?: string): StringValidator;
+    /**
      * Required Validator
      *
      * @param {String} message

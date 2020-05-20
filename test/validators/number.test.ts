@@ -1,7 +1,7 @@
 import number from '../../dist/types/number';
 import { number_type_error_message } from '../../dist/utils/errors';
 import { handleNumberValidation } from '../../dist/validators/number';
-import { number_required_error_message, number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message } from '../../dist/messages/number';
+import { number_required_error_message, number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message, number_latitude_error_message, number_longitude_error_message } from '../../dist/messages/number';
 
 describe("Number Validator", () => {
 
@@ -73,6 +73,48 @@ describe("Number Validator", () => {
 
         it("Shouldn't return error if input isn't required and value is not passed", () => {
             let validator = number().integer();
+            expect(handleNumberValidation("field", validator.validators[1], null).length).toBe(0);
+        });
+
+        it("Should return error if input isn't a valid latitude", () => {
+            let validator = number().latitude();
+            expect(handleNumberValidation("field", validator.validators[1], -91)).toContainEqual({
+                field: "field", message: number_latitude_error_message()
+            });
+            expect(handleNumberValidation("field", validator.validators[1], 91)).toContainEqual({
+                field: "field", message: number_latitude_error_message()
+            });
+        });
+
+        it("Shouldn't return error if input is a valid latitude", () => {
+            let validator = number().latitude();
+            expect(handleNumberValidation("field", validator.validators[1], -90).length).toBe(0);
+            expect(handleNumberValidation("field", validator.validators[1], 90).length).toBe(0);
+        });
+
+        it("Shouldn't return error if input isn't required and value is not passed", () => {
+            let validator = number().latitude();
+            expect(handleNumberValidation("field", validator.validators[1], null).length).toBe(0);
+        });
+
+        it("Should return error if input isn't a valid latitude", () => {
+            let validator = number().longitude();
+            expect(handleNumberValidation("field", validator.validators[1], -181)).toContainEqual({
+                field: "field", message: number_longitude_error_message()
+            });
+            expect(handleNumberValidation("field", validator.validators[1], 181)).toContainEqual({
+                field: "field", message: number_longitude_error_message()
+            });
+        });
+
+        it("Shouldn't return error if input is a valid longitude", () => {
+            let validator = number().longitude();
+            expect(handleNumberValidation("field", validator.validators[1], -180).length).toBe(0);
+            expect(handleNumberValidation("field", validator.validators[1], 180).length).toBe(0);
+        });
+
+        it("Shouldn't return error if input isn't required and value is not passed", () => {
+            let validator = number().longitude();
             expect(handleNumberValidation("field", validator.validators[1], null).length).toBe(0);
         });
 

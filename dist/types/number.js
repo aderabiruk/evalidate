@@ -79,6 +79,30 @@ var NumberValidator = /** @class */ (function (_super) {
         return this;
     };
     /**
+     * Latitude Validator
+     *
+     * @param {String} message
+     */
+    NumberValidator.prototype.latitude = function (message) {
+        if (message && !validators_1.isString(message)) {
+            throw new Error(errors_1.string_type_error_message("message"));
+        }
+        this.validators.push({ validator: constants_1.TYPES.NUMBER, type: constants_1.NUMBER_VALIDATOR_TYPES.LATITUDE, message: message || number_1.number_latitude_error_message() });
+        return this;
+    };
+    /**
+     * Longitude Validator
+     *
+     * @param {String} message
+     */
+    NumberValidator.prototype.longitude = function (message) {
+        if (message && !validators_1.isString(message)) {
+            throw new Error(errors_1.string_type_error_message("message"));
+        }
+        this.validators.push({ validator: constants_1.TYPES.NUMBER, type: constants_1.NUMBER_VALIDATOR_TYPES.LONGITUDE, message: message || number_1.number_longitude_error_message() });
+        return this;
+    };
+    /**
      * Maximum Validator
      *
      * @param {Number} value

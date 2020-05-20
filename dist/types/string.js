@@ -165,6 +165,18 @@ var StringValidator = /** @class */ (function (_super) {
         return this;
     };
     /**
+     * Numeric Validator
+     *
+     * @param {String} message
+     */
+    StringValidator.prototype.numeric = function (message) {
+        if (message && !validators_1.isString(message)) {
+            throw new Error(errors_1.string_type_error_message("message"));
+        }
+        this.validators.push({ validator: constants_1.TYPES.STRING, type: constants_1.STRING_VALIDATOR_TYPES.NUMERIC, message: message || string_1.string_numeric_error_message() });
+        return this;
+    };
+    /**
      * Required Validator
      *
      * @param {String} message

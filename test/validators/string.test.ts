@@ -1,7 +1,7 @@
 import string from '../../dist/types/string';
 import { string_type_error_message } from '../../dist/utils/errors';
 import { handleStringValidation } from '../../dist/validators/string';
-import { string_alphanumeric_error_message, string_url_error_message } from '../../src/messages/string';
+import { string_alphanumeric_error_message, string_url_error_message, string_numeric_error_message } from '../../src/messages/string';
 import { string_required_error_message, string_email_error_message, string_equal_error_message, string_maxlength_error_message, string_minlength_error_message, string_in_error_message, string_credit_card_error_message, string_fqdn_error_message, string_isbn_error_message } from '../../dist/messages/string';
 
 describe("String Validator", () => {
@@ -176,6 +176,23 @@ describe("String Validator", () => {
 
         it("Shouldn't return error if input isn't required and value is not passed", () => {
             let validator = string().minlength(5);
+            expect(handleStringValidation("field", validator.validators[1], null)).toEqual([]);
+        });
+
+        it("Should return error if invalid numeric is provided", () => {
+            let validator = string().numeric();
+            expect(handleStringValidation("field", validator.validators[1], 'a')).toContainEqual({
+                field: "field", message: string_numeric_error_message()
+            });
+        });
+
+        it("Shouldn't return error if valid numeric is provided", () => {
+            let validator = string().numeric();
+            expect(handleStringValidation("field", validator.validators[1], '100.001')).toEqual([]);
+        });
+
+        it("Shouldn't return error if input isn't required and value is not passed", () => {
+            let validator = string().numeric();
             expect(handleStringValidation("field", validator.validators[1], null)).toEqual([]);
         });
 
