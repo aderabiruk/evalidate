@@ -28,6 +28,8 @@ export declare const NUMBER_VALIDATOR_TYPES: {
     EQUAL: string;
     IN: string;
     INTEGER: string;
+    LATITUDE: string;
+    LONGITUDE: string;
     MAX: string;
     MIN: string;
     REQUIRED: string;

@@ -19,6 +19,18 @@ exports.number_integer_error_message = function () {
     return "${{}} must be an integer";
 };
 /**
+ * Latitude Error Message
+ */
+exports.number_latitude_error_message = function () {
+    return "${{}} must be between -90 and 90 degrees";
+};
+/**
+ * Longitude Error Message
+ */
+exports.number_longitude_error_message = function () {
+    return "${{}} must be between -180 and 180 degrees";
+};
+/**
  * Max Error Message
  */
 exports.number_max_error_message = function (value) {

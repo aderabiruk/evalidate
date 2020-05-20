@@ -28,6 +28,16 @@ export const handleNumberValidation = (field: string, validator: Validator, valu
                     errors.push({field: field, message: validator.message});
                 }
                 break;
+            case NUMBER_VALIDATOR_TYPES.LATITUDE:
+                if (value < -90 || value > 90) {
+                    errors.push({field: field, message: validator.message});
+                }
+                break;
+            case NUMBER_VALIDATOR_TYPES.LONGITUDE:
+                if (value < -180 || value > 180) {
+                    errors.push({field: field, message: validator.message});
+                }
+                break;
             case NUMBER_VALIDATOR_TYPES.MAX:
                 if (value > validator.value) {
                     errors.push({field: field, message: validator.message});
