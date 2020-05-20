@@ -143,7 +143,8 @@ describe("Main File", () => {
                     status: evalidate2.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate2.string().required().equals("Admin"),
                     credit: evalidate2.string().alphanumeric().credit_card(),
-                    website: evalidate2.string().url()
+                    website: evalidate2.string().url(),
+                    age: evalidate.string().numeric('Age must be numeric')
                 });
                 let result = schema.validate({});
                 expect(result.isValid).toBeFalsy();
@@ -168,13 +169,15 @@ describe("Main File", () => {
                     status: evalidate2.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate2.string().required().equals("Admin"),
                     credit: evalidate2.string().alphanumeric().credit_card(),
-                    website: evalidate2.string().url()
+                    website: evalidate2.string().url(),
+                    age: evalidate.string().numeric('Age must be numeric')
                 });
                 let result = schema.validate({
                     name: "jo",
                     email: "aderabiruk",
                     status: "Unknown",
-                    type: "User"
+                    type: "User",
+                    age: "querty"
                 });
                 expect(result.isValid).toBeFalsy();
                 expect(result.errors).toContainEqual({
@@ -189,6 +192,9 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'type', message: "Invalid value provided for type"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'age', message: "Age must be numeric"
+                });
             });
 
             it("Scenario #3", () => {
@@ -198,7 +204,8 @@ describe("Main File", () => {
                     status: evalidate2.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate2.string().required().equals("Admin"),
                     credit: evalidate2.string().alphanumeric().credit_card(),
-                    website: evalidate2.string().url()
+                    website: evalidate2.string().url(),
+                    age: evalidate.string().numeric()
                 });
                 let result = schema.validate({
                     name: "jo",
@@ -206,7 +213,8 @@ describe("Main File", () => {
                     status: "Unknown",
                     type: "User",
                     credit: "!@#$%%^&*(()",
-                    website: 'invalid-website'
+                    website: 'invalid-website',
+                    age: "querty"
                 });
 
                 expect(result.isValid).toBeFalsy();
@@ -231,6 +239,9 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'website', message: "Invalid url value provided for website"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'age', message: "age must only have numeric characters"
+                });
             });
 
             it("Scenario #4", () => {
@@ -240,13 +251,15 @@ describe("Main File", () => {
                     status: evalidate2.string().required("Status is required!").in(["Active", "Deactive"]),
                     type: evalidate2.string().required().equals("Admin"),
                     credit: evalidate2.string().alphanumeric().credit_card(),
-                    website: evalidate2.string().url()
+                    website: evalidate2.string().url(),
+                    age: evalidate.string().numeric()
                 });
                 let result = schema.validate({
                     name: "aderabiruk",
                     email: "aderabiruk@gmail.com",
                     status: "Active",
-                    type: "Admin"
+                    type: "Admin",
+                    age: "23"
                 });
                 expect(result.isValid).toBeTruthy();
                 expect(result.errors.length).toBe(0);
@@ -260,7 +273,9 @@ describe("Main File", () => {
                 let schema = new evalidate.schema({
                     code: evalidate.number().equals(10),
                     age: evalidate.number().integer().min(0).max(100, "Max Error"),
-                    status: evalidate.number().in([1, 2, 3, 4, 5], "In Error")
+                    status: evalidate.number().in([1, 2, 3, 4, 5], "In Error"),
+                    latitude: evalidate.number().latitude(),
+                    longitude: evalidate.number().longitude()
                 });
                 let result = schema.validate({});
     
@@ -272,12 +287,16 @@ describe("Main File", () => {
                 let schema = new evalidate.schema({
                     code: evalidate.number().equals(10),
                     age: evalidate.number().integer().min(0).max(100, "Max Error"),
-                    status: evalidate.number().in([1, 2, 3, 4, 5], "In Error")
+                    status: evalidate.number().in([1, 2, 3, 4, 5], "In Error"),
+                    latitude: evalidate.number().latitude(),
+                    longitude: evalidate.number().longitude()
                 });
                 let result = schema.validate({
                     code: 9,
                     age: 101.5,
-                    status: 6
+                    status: 6,
+                    latitude: -91,
+                    longitude: 181
                 });
     
                 expect(result.isValid).toBeFalsy();
@@ -293,6 +312,12 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'status', message: "In Error"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'latitude', message: "latitude must be between -90 and 90 degrees"
+                });
+                expect(result.errors).toContainEqual({
+                    field: 'longitude', message: "longitude must be between -180 and 180 degrees"
+                });
             });
     
             it("Scenario #3", () => {
@@ -304,7 +329,9 @@ describe("Main File", () => {
                 let result = schema.validate({
                     code: 10,
                     age: 100,
-                    status: 5
+                    status: 5,
+                    latitude: 90,
+                    longitude: -180
                 });
     
                 expect(result.isValid).toBeTruthy();
@@ -317,7 +344,9 @@ describe("Main File", () => {
                 let schema = new evalidate2.schema({
                     code: evalidate2.number().equals(10),
                     age: evalidate2.number().integer().min(0).max(100, "Max Error"),
-                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error")
+                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error"),
+                    latitude: evalidate.number().latitude(),
+                    longitude: evalidate.number().longitude()
                 });
                 let result = schema.validate({});
     
@@ -329,12 +358,16 @@ describe("Main File", () => {
                 let schema = new evalidate2.schema({
                     code: evalidate2.number().equals(10),
                     age: evalidate2.number().integer().min(0).max(100, "Max Error"),
-                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error")
+                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error"),
+                    latitude: evalidate.number().latitude(),
+                    longitude: evalidate.number().longitude()
                 });
                 let result = schema.validate({
                     code: 9,
                     age: 101.5,
-                    status: 6
+                    status: 6,
+                    latitude: -91,
+                    longitude: 181
                 });
     
                 expect(result.isValid).toBeFalsy();
@@ -350,18 +383,28 @@ describe("Main File", () => {
                 expect(result.errors).toContainEqual({
                     field: 'status', message: "In Error"
                 });
+                expect(result.errors).toContainEqual({
+                    field: 'latitude', message: "latitude must be between -90 and 90 degrees"
+                });
+                expect(result.errors).toContainEqual({
+                    field: 'longitude', message: "longitude must be between -180 and 180 degrees"
+                });
             });
     
             it("Scenario #3", () => {
                 let schema = new evalidate2.schema({
                     code: evalidate2.number().equals(10),
                     age: evalidate2.number().integer().min(0).max(100, "Max Error"),
-                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error")
+                    status: evalidate2.number().in([1, 2, 3, 4, 5], "In Error"),
+                    latitude: evalidate.number().latitude(),
+                    longitude: evalidate.number().longitude()
                 });
                 let result = schema.validate({
                     code: 10,
                     age: 100,
-                    status: 5
+                    status: 5,
+                    latitude: 90,
+                    longitude: -180
                 });
     
                 expect(result.isValid).toBeTruthy();

@@ -1,7 +1,7 @@
 import Number from '../../dist/types/number';
 import { number_type_error_message } from '../../dist/utils/errors';
 import { NUMBER_VALIDATOR_TYPES, TYPES } from '../../dist/utils/constants';
-import { number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message, number_required_error_message } from '../../dist/messages/number';
+import { number_equal_error_message, number_in_error_message, number_integer_error_message, number_max_error_message, number_min_error_message, number_required_error_message, number_latitude_error_message, number_longitude_error_message } from '../../dist/messages/number';
 
 describe("NumberValidator", () => {
     
@@ -56,6 +56,42 @@ describe("NumberValidator", () => {
 
             expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_type_error_message("${{}}"), type: NUMBER_VALIDATOR_TYPES.TYPE});
             expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: "Integer Error Message!", type: NUMBER_VALIDATOR_TYPES.INTEGER});
+        });
+    });
+
+    describe("latitude", () => {
+        it("Should add latitude validator without message", () => {
+            let validator = Number();
+            validator.latitude();
+
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_type_error_message("${{}}"), type: NUMBER_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_latitude_error_message(), type: NUMBER_VALIDATOR_TYPES.LATITUDE});
+        });
+
+        it("Should add latitude validator with message", () => {
+            let validator = Number();
+            validator.latitude("Latitude Error Message!");
+
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_type_error_message("${{}}"), type: NUMBER_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: "Latitude Error Message!", type: NUMBER_VALIDATOR_TYPES.LATITUDE});
+        });
+    });
+
+    describe("longitude", () => {
+        it("Should add longitude validator without message", () => {
+            let validator = Number();
+            validator.longitude();
+
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_type_error_message("${{}}"), type: NUMBER_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_longitude_error_message(), type: NUMBER_VALIDATOR_TYPES.LONGITUDE});
+        });
+
+        it("Should add longitude validator with message", () => {
+            let validator = Number();
+            validator.longitude("Longitude Error Message!");
+
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: number_type_error_message("${{}}"), type: NUMBER_VALIDATOR_TYPES.TYPE});
+            expect(validator.validators).toContainEqual({validator: TYPES.NUMBER, message: "Longitude Error Message!", type: NUMBER_VALIDATOR_TYPES.LONGITUDE});
         });
     });
 
