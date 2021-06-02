@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "snyk test && jest --verbose --coverage",
+    "test": "jest --verbose --coverage",
     "test:dev": "jest --verbose --watchAll",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
