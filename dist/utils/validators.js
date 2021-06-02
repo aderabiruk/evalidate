@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isNumber = exports.isDate = exports.isBoolean = exports.isInteger = exports.isArray = exports.isString = void 0;
 var _ = require("lodash");
 var moment = require("moment");
 /**

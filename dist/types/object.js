@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ObjectValidator = void 0;
 var abstract_1 = require("./abstract");
 /**
  * Object Validator Class
