@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest --verbose --coverage",
+    "test": "snyk test && jest --verbose --coverage",
     "test:dev": "jest --verbose --watchAll",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
@@ -41,8 +41,8 @@
     "@types/validator": "^13.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.24.0",
-    "validator": "^13.0.0",
-    "snyk": "^1.518.0"
+    "snyk": "^1.621.0",
+    "validator": "^13.0.0"
   },
   "snyk": true
 }
