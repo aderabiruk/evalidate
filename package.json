@@ -1,6 +1,6 @@
 {
   "name": "evalidate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An easy to use Object Schema Validator",
   "main": "dist/index.js",
   "scripts": {
@@ -29,20 +29,20 @@
   },
   "homepage": "https://github.com/aderabiruk/evalidate#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-env": "^7.16.4",
     "@types/jest": "^25.2.1",
     "babel-jest": "^25.4.0",
     "jest": "^25.4.0",
     "ts-jest": "^25.4.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.150",
-    "@types/validator": "^13.0.0",
+    "@types/lodash": "^4.14.177",
+    "@types/validator": "^13.7.0",
     "lodash": "^4.17.21",
     "moment": "^2.24.0",
-    "snyk": "^1.621.0",
-    "validator": "^13.0.0"
+    "snyk": "^1.779.0",
+    "validator": "^13.7.0"
   },
   "snyk": true
 }

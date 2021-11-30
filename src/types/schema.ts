@@ -1,3 +1,4 @@
+import { toString } from 'lodash';
 import { ErrorMessage, Validator } from "./abstract";
 import { TYPES } from "../utils/constants";
 import { ObjectValidator } from './object';
@@ -120,7 +121,7 @@ export default class Schema {
             return handleNumberValidation(fieldName, validator, data[`${field}`]);
         }
         else if (validator.validator === TYPES.STRING) {
-            return handleStringValidation(fieldName, validator, data[`${field}`]);
+            return handleStringValidation(fieldName, validator, toString(data[`${field}`]));
         }
         else {
             return [];

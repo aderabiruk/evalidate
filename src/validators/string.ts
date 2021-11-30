@@ -1,6 +1,6 @@
 import StringValidator from 'validator';
-import { Validator, ErrorMessage } from '../types/abstract';
 import { isString } from '../utils/validators';
+import { Validator, ErrorMessage } from '../types/abstract';
 import { STRING_VALIDATOR_TYPES } from "../utils/constants";
 
 /**
