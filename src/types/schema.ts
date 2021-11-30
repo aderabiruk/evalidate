@@ -1,11 +1,11 @@
-import { toString } from 'lodash';
-import { ErrorMessage, Validator } from "./abstract";
 import { TYPES } from "../utils/constants";
 import { ObjectValidator } from './object';
+import { ErrorMessage, Validator } from "./abstract";
 import { handleDateValidation } from "../validators/date";
 import { handleArrayValidation } from "../validators/array";
 import { handleNumberValidation } from "../validators/number";
 import { handleStringValidation } from "../validators/string";
+import { parseStringValidationValue } from '../utils/parser';
 import { handleBooleanValidation } from "../validators/boolean";
 
 
@@ -121,7 +121,7 @@ export default class Schema {
             return handleNumberValidation(fieldName, validator, data[`${field}`]);
         }
         else if (validator.validator === TYPES.STRING) {
-            return handleStringValidation(fieldName, validator, toString(data[`${field}`]));
+            return handleStringValidation(fieldName, validator, parseStringValidationValue(data[`${field}`]));
         }
         else {
             return [];
