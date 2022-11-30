@@ -41,7 +41,7 @@
     "@types/validator": "^13.7.0",
     "lodash": "^4.17.21",
     "moment": "^2.24.0",
-    "snyk": "^1.779.0",
+    "snyk": "^1.1064.0",
     "validator": "^13.7.0"
   },
   "snyk": true
