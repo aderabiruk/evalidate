@@ -39,7 +39,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.177",
     "@types/validator": "^13.7.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "moment": "^2.24.0",
     "snyk": "^1.779.0",
     "validator": "^13.7.0"
